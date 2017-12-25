@@ -10,9 +10,8 @@ class MainActivity : AppCompatActivity() {
 //        window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        simpleKeyboard.initKeyboard(this)
-        simpleKeyboard.addEdittext(editText)
-        simpleKeyboard.addEdittext(editText2)
+        simpleKeyboard.initEdittext(editText)
+        simpleKeyboard.initEdittext(editText2)
         simpleKeyboard.showKeyboard(editText)
 
 

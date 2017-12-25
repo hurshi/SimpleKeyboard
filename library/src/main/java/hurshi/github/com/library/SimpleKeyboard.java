@@ -1,6 +1,5 @@
 package hurshi.github.com.library;
 
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
@@ -12,6 +11,7 @@ import android.os.Build;
 import android.support.v4.content.ContextCompat;
 import android.text.InputType;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -26,59 +26,60 @@ public class SimpleKeyboard extends KeyboardView {
     private Keyboard normalKeyboard;
     private Keyboard numKeyboard;
     private Keyboard moreKeyboard;
-    private Activity activity;
     public EditText currentEdittext;
     private Paint paint;
     private Drawable topBg;
 
     public SimpleKeyboard(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init();
+        init(context);
     }
 
     public SimpleKeyboard(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init();
+        init(context);
     }
 
-    private void init() {
+    private void init(Context context) {
         setVisibility(GONE);
-        paint = new Paint();
-        paint.setAntiAlias(true);
-    }
-
-    public void initKeyboard(Activity activity) {
-        this.activity = activity;
         setKeyBoard2Normal();
         setPreviewEnabled(false);
-        setOnKeyboardActionListener(new OnSimpleKeyboardActionListener(activity, this));
-
-        initPaint();
+        setOnKeyboardActionListener(new OnSimpleKeyboardActionListener(context, this));
+        initPaint(context);
     }
 
-    private void initPaint() {
+
+    private void initPaint(Context context) {
+        paint = new Paint();
+        paint.setAntiAlias(true);
         paint.setTextAlign(Paint.Align.CENTER);
-        paint.setTextSize(sp2px(activity, 18));
-        paint.setColor(ContextCompat.getColor(activity, R.color.key_text_color));
-        topBg = new ColorDrawable(ContextCompat.getColor(activity, R.color.top_bg_color));
+        paint.setTextSize(sp2px(context, 18));
+        paint.setColor(ContextCompat.getColor(context, R.color.key_text_color));
+        topBg = new ColorDrawable(ContextCompat.getColor(context, R.color.top_bg_color));
     }
 
 
-    public void addEdittext(EditText editText) {
-        editText.setOnClickListener(new OnClickListener() {
+    public void initEdittext(EditText editText) {
+        editText.setOnFocusChangeListener(new OnFocusChangeListener() {
             @Override
-            public void onClick(View v) {
-                showKeyboard(v);
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus) {
+                    showKeyboard(v);
+                }
             }
         });
-        if (Build.VERSION.SDK_INT >= 11) {
+
+        editText.setFocusable(true);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            editText.setShowSoftInputOnFocus(false);
+        } else {
             editText.setRawInputType(InputType.TYPE_CLASS_TEXT);
             editText.setTextIsSelectable(true);
-        } else {
-            editText.setRawInputType(InputType.TYPE_NULL);
-            editText.setFocusable(true);
-        }
+//            editText.setInputType(InputType.TYPE_NULL);
+//            editText.setRawInputType(InputType.TYPE_NULL);
 
+        }
     }
 
     @Override
@@ -102,7 +103,7 @@ public class SimpleKeyboard extends KeyboardView {
             spaceKey.icon.setBounds(spaceKey.x, spaceKey.y + spaceKey.height / 4, spaceKey.x + spaceKey.width, spaceKey.y + spaceKey.height * 3 / 4);
             spaceKey.icon.draw(canvas);
         }
-        paint.setTextSize(sp2px(activity, 15));
+        paint.setTextSize(sp2px(getContext(), 15));
         canvas.drawText("空格",
                 spaceKey.x + (spaceKey.width) / 2,
                 spaceKey.y + (spaceKey.height) / 2 + (paint.getTextSize() - paint.descent()) / 2,
@@ -124,21 +125,21 @@ public class SimpleKeyboard extends KeyboardView {
 
     public void setKeyBoard2Normal() {
         if (null == normalKeyboard) {
-            normalKeyboard = new Keyboard(activity, R.xml.keyboard_normal);
+            normalKeyboard = new Keyboard(getContext(), R.xml.keyboard_normal);
         }
         setKeyboard(normalKeyboard);
     }
 
     public void setKeyBoard2Nums() {
         if (null == numKeyboard) {
-            numKeyboard = new Keyboard(activity, R.xml.keyboard_num);
+            numKeyboard = new Keyboard(getContext(), R.xml.keyboard_num);
         }
         setKeyboard(numKeyboard);
     }
 
     public void setKeyboard2More() {
         if (null == moreKeyboard) {
-            moreKeyboard = new Keyboard(activity, R.xml.keyboard_more);
+            moreKeyboard = new Keyboard(getContext(), R.xml.keyboard_more);
         }
         setKeyboard(moreKeyboard);
     }

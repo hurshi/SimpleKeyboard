@@ -2,6 +2,7 @@
 package hurshi.github.com.library;
 
 import android.app.Activity;
+import android.content.Context;
 import android.inputmethodservice.KeyboardView.OnKeyboardActionListener;
 import android.text.Editable;
 import android.view.KeyEvent;
@@ -11,11 +12,11 @@ import android.widget.EditText;
 
 public class OnSimpleKeyboardActionListener implements OnKeyboardActionListener {
 
-    private Activity activity;
     private SimpleKeyboard keyboardView;
+    private Context context;
 
-    public OnSimpleKeyboardActionListener(Activity activity, SimpleKeyboard keyboardView) {
-        this.activity = activity;
+    public OnSimpleKeyboardActionListener(Context context, SimpleKeyboard keyboardView) {
+        this.context = context;
         this.keyboardView = keyboardView;
     }
 
@@ -64,7 +65,7 @@ public class OnSimpleKeyboardActionListener implements OnKeyboardActionListener 
                 editable.delete(start > 0 ? (start - 1) : 0, start);
                 return;
             case -1012:
-                activity.dispatchKeyEvent(new KeyEvent(EditorInfo.IME_ACTION_DONE, KeyEvent.KEYCODE_ENTER));
+                ((Activity) context).dispatchKeyEvent(new KeyEvent(EditorInfo.IME_ACTION_DONE, KeyEvent.KEYCODE_ENTER));
                 return;
             case -1000:
                 keyboardView.setKeyBoard2Normal();
