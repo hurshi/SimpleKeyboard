@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
+    android:horizontalGap="0px"
+    android:keyHeight="50dp"
+    android:keyWidth="10%p"
+    android:verticalGap="0px">
+    <Row
+        android:horizontalGap="0.2%p"
+        android:keyHeight="40dp"
+        android:keyWidth="16.5%p"
+        android:rowEdgeFlags="top">
+        <Key
+            android:keyEdgeFlags="left"
+            android:keyLabel="the"
+            android:keyOutputText="the" />
+        <Key
+            android:keyLabel="one"
+            android:keyOutputText="one" />
+        <Key
+            android:keyLabel="'s"
+            android:keyOutputText="'s" />
+        <Key
+            android:keyLabel="self"
+            android:keyOutputText="self" />
+        <Key
+            android:keyLabel="sb."
+            android:keyOutputText="sb." />
+        <Key
+            android:keyEdgeFlags="right"
+            android:keyLabel="sth."
+            android:keyOutputText="sth." />
+    </Row>
+
+    <Row>
+        <Key
+            android:codes="91"
+            android:keyEdgeFlags="left"
+            android:keyLabel="[" />
+        <Key
+            android:codes="93"
+            android:keyLabel="]" />
+        <Key
+            android:codes="123"
+            android:keyLabel="{" />
+        <Key
+            android:codes="125"
+            android:keyLabel="}" />
+
+        <Key
+            android:codes="60"
+            android:keyLabel="&lt;" />
+        <Key
+            android:codes="62"
+            android:keyLabel="&gt;" />
+        <Key
+            android:codes="12298"
+            android:keyLabel="《" />
+        <Key
+            android:codes="12299"
+            android:keyLabel="》" />
+        <Key
+            android:keyLabel="「」"
+            android:keyOutputText="「」" />
+        <Key
+            android:keyEdgeFlags="right"
+            android:keyLabel=";"
+            android:keyOutputText=";" />
+    </Row>
+
+    <Row>
+        <Key
+            android:codes="43"
+            android:horizontalGap="5%p"
+            android:keyEdgeFlags="left"
+            android:keyLabel="+" />
+        <Key
+            android:codes="45"
+            android:keyLabel="-" />
+        <Key
+            android:codes="61"
+            android:keyLabel="=" />
+        <Key
+            android:codes="42"
+            android:keyLabel="*" />
+        <Key
+            android:codes="126"
+            android:keyLabel="~" />
+        <Key
+            android:codes="94"
+            android:keyLabel="^" />
+        <Key
+            android:codes="95"
+            android:keyLabel="_" />
+        <Key
+            android:codes="124"
+            android:keyLabel="|" />
+        <Key
+            android:codes="92"
+            android:keyEdgeFlags="right"
+            android:keyLabel="\\" />
+
+    </Row>
+
+    <Row>
+        <Key
+            android:codes="-1001"
+            android:keyEdgeFlags="left"
+            android:keyLabel="\?123"
+            android:keyWidth="15%p" />
+        <Key
+            android:codes="35"
+            android:keyLabel="#" />
+        <Key
+            android:codes="8800"
+            android:keyLabel="≠" />
+        <Key
+            android:codes="36"
+            android:keyLabel="$" />
+        <Key
+            android:codes="165"
+            android:keyLabel="¥" />
+        <Key
+            android:codes="163"
+            android:keyLabel="£" />
+        <Key
+            android:codes="8364"
+            android:keyLabel="€" />
+        <Key
+            android:codes="8355"
+            android:keyLabel="₣" />
+        <Key
+            android:codes="-1011"
+            android:isRepeatable="true"
+            android:keyEdgeFlags="right"
+            android:keyIcon="@drawable/ic_key_del"
+            android:keyWidth="15%p" />
+    </Row>
+
+    <Row android:rowEdgeFlags="bottom">
+        <Key
+            android:codes="-1000"
+            android:keyEdgeFlags="left"
+            android:keyLabel="ABC"
+            android:keyWidth="13.85%p" />
+        <Key
+            android:codes="39"
+            android:keyLabel="'" />
+        <Key
+            android:codes="8230"
+            android:keyLabel="…" />
+        <Key
+            android:codes="32"
+            android:isRepeatable="true"
+            android:keyIcon="@drawable/key_space_background"
+            android:keyLabel=" "
+            android:keyWidth="30%p" />
+        <Key
+            android:codes="45"
+            android:keyLabel="-" />
+        <Key
+            android:codes="46"
+            android:keyLabel="." />
+        <Key
+            android:codes="-1012"
+            android:keyEdgeFlags="right"
+            android:keyLabel="提交"
+            android:keyWidth="15%p" />
+    </Row>
+</Keyboard>
+    

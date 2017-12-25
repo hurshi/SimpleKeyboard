@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="key_text_color">#505155</color>
+
+    <color name="key_bg_unpressed">#f6f6f6</color>
+    <color name="key_bg_pressed">#dde2e5</color>
+
+    <color name="top_bg_color">#e3e7e8</color>
+
+    <color name="key_space_bg_color">#d0d5d8</color>
+
+</resources>
+
