@@ -5,32 +5,6 @@
     android:keyHeight="50dp"
     android:keyWidth="10%p"
     android:verticalGap="0px">
-    <Row
-        android:horizontalGap="0.2%p"
-        android:keyHeight="40dp"
-        android:keyWidth="16.5%p"
-        android:rowEdgeFlags="top">
-        <Key
-            android:keyEdgeFlags="left"
-            android:keyLabel="the"
-            android:keyOutputText="the" />
-        <Key
-            android:keyLabel="one"
-            android:keyOutputText="one" />
-        <Key
-            android:keyLabel="'s"
-            android:keyOutputText="'s" />
-        <Key
-            android:keyLabel="self"
-            android:keyOutputText="self" />
-        <Key
-            android:keyLabel="sb."
-            android:keyOutputText="sb." />
-        <Key
-            android:keyEdgeFlags="right"
-            android:keyLabel="sth."
-            android:keyOutputText="sth." />
-    </Row>
 
     <Row>
         <Key
