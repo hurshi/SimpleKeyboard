@@ -41,7 +41,6 @@ public class SimpleKeyboard extends KeyboardView {
     }
 
     private void init(Context context) {
-        setVisibility(GONE);
         setKeyBoard2Normal();
         setPreviewEnabled(false);
         setOnKeyboardActionListener(new OnSimpleKeyboardActionListener(context, this));
@@ -78,7 +77,6 @@ public class SimpleKeyboard extends KeyboardView {
             editText.setTextIsSelectable(true);
 //            editText.setInputType(InputType.TYPE_NULL);
 //            editText.setRawInputType(InputType.TYPE_NULL);
-
         }
     }
 
@@ -87,18 +85,6 @@ public class SimpleKeyboard extends KeyboardView {
         super.onDraw(canvas);
         List<Keyboard.Key> keys = getKeyboard().getKeys();
         Keyboard.Key spaceKey = keys.get(keys.size() - 4);
-//        for (int i = 0; i < 6; i++) {
-//            Keyboard.Key key = keys.get(i);
-//            topBg.setBounds(key.x, key.y, key.x + key.width, key.y + key.height);
-//            topBg.draw(canvas);
-//
-//            if (null != key.label) {
-//                canvas.drawText(key.label.toString(),
-//                        key.x + (key.width) / 2,
-//                        key.y + (key.height) / 2 + (paint.getTextSize() - paint.descent()) / 2,
-//                        paint);
-//            }
-//        }
         canvas.drawLine(0, 0, getWidth(), 0, paint);
         if (null != spaceKey.icon) {
             spaceKey.icon.setBounds(spaceKey.x, spaceKey.y + spaceKey.height / 4, spaceKey.x + spaceKey.width, spaceKey.y + spaceKey.height * 3 / 4);
@@ -110,10 +96,6 @@ public class SimpleKeyboard extends KeyboardView {
                 spaceKey.y + (spaceKey.height) / 2 + (paint.getTextSize() - paint.descent()) / 2,
                 paint);
 
-    }
-
-    public void removeEdittext(EditText editText) {
-        editText.setOnTouchListener(null);
     }
 
     public void changeShift() {
