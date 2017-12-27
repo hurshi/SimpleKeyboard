@@ -149,35 +149,7 @@ public class SimpleKeyboard extends KeyboardView {
         this.currentEdittext = (EditText) currentEditView;
         if (getVisibility() != VISIBLE) {
             setVisibility(VISIBLE);
-            Animation pullIn = AnimationUtils.loadAnimation(getContext(), R.anim.ime_pull_in_bottom);
-            startAnimation(pullIn);
         }
-    }
-
-    public boolean hideKeyboard() {
-        if (getVisibility() == VISIBLE) {
-            Animation pushOut = AnimationUtils.loadAnimation(getContext(), R.anim.ime_push_out_bottom);
-            pushOut.setAnimationListener(new Animation.AnimationListener() {
-                @Override
-                public void onAnimationStart(Animation animation) {
-
-                }
-
-                @Override
-                public void onAnimationEnd(Animation animation) {
-                    setVisibility(GONE);
-                }
-
-                @Override
-                public void onAnimationRepeat(Animation animation) {
-
-                }
-            });
-            startAnimation(pushOut);
-            return true;
-        }
-        return false;
-
     }
 
     private int sp2px(Context context, float spValue) {
