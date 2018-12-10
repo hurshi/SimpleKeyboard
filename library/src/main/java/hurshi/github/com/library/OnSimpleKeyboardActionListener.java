@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.inputmethodservice.KeyboardView.OnKeyboardActionListener;
 import android.text.Editable;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
@@ -84,7 +85,8 @@ public class OnSimpleKeyboardActionListener implements OnKeyboardActionListener 
         EditText currentEdittext = keyboardView.currentEdittext;
         Editable editable = currentEdittext.getText();
         int start = currentEdittext.getSelectionStart();
-        editable.insert(start, Character.toString((char) primaryCode));
+        if (start <= editable.length())
+            editable.insert(start, Character.toString((char) primaryCode));
     }
 
     private boolean isLetter(int primaryCode) {//判断是否为字母
